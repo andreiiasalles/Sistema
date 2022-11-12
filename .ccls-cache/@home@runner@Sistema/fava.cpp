@@ -52,6 +52,7 @@ void remover(int x){
         Ant->Prox = Pont->Prox;
 			  Pont->Prox = NULL;
       }
+      cout <<("Numero apagado." ) << endl;
     }  
       else{
         cout <<("Numero não encontrado." ) << endl;
@@ -59,23 +60,14 @@ void remover(int x){
   
 }
 void alterar(int x, int y){
-  if(x != y){
-    buscar(y);
-      if(Pont != NULL){
-      cout << ("Chave duplicada! Escolha outro numero.") << endl; 
-      } else{
-        buscar(x);
-        if ( Pont != NULL){ 
-          remover(x);
-          inserir(y);
-        }  
-          else{
-            cout <<("Numero não encontrado." ) << endl;
-          }
-        }
-    }else{
-    cout <<("O numero que deseja adcionar é igual ao que deseja trocar. Escolha outro numero para adcionar.") << endl;
-    }
+    buscar(x);
+    if ( Pont != NULL){ 
+      Pont->Chv = y;
+    }  
+      else{
+        cout <<("Numero não encontrado." ) << endl;
+      }
+  
 }
 
 void listar(){
@@ -141,9 +133,7 @@ int main() {
         cout << ("Informe o numero que deseja deletar.") << endl; 
         cin >> (x);
         remover(x);
-        if (Pont == NULL){ 
-           cout <<("Numero apagado." ) << endl;
-         }  
+        
      break;
       
      case 5:
